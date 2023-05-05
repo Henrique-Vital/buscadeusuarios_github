@@ -2120,6 +2120,7 @@
   avatarElement.alt = 'Avatar';
   avatarElement.style.borderRadius = '50%';
   avatarElement.style.width = '200px';
+  avatarElement.style.marginTop = '20px';
 
   const reposElement = document.createElement('p');
   reposElement.innerText = `Repositórios: ${userData.public_repos}`;
@@ -2135,21 +2136,29 @@
   linkElement.innerText = 'Ver no Github';
 
   const userContainer = document.createElement('div');
-  userContainer.appendChild(nameElement);
-  userContainer.appendChild(usernameElement);
   userContainer.appendChild(avatarElement);
-  userContainer.appendChild(reposElement);
-  userContainer.appendChild(followersElement);
-  userContainer.appendChild(followingElement);
-  userContainer.appendChild(linkElement);
+
+  const infoContainer = document.createElement('div');
+  infoContainer.appendChild(nameElement);
+  infoContainer.appendChild(usernameElement);
+  infoContainer.appendChild(reposElement);
+  infoContainer.appendChild(followersElement);
+  infoContainer.appendChild(followingElement);
+  infoContainer.appendChild(linkElement);
+  infoContainer.style.display = 'flex';
+  infoContainer.style.flexDirection = 'column';
+  infoContainer.style.alignItems = 'flex-start';
+  infoContainer.style.marginLeft = '20px';
+
+  userContainer.appendChild(infoContainer);
   userContainer.style.display = 'flex';
-  userContainer.style.flexDirection = 'column';
   userContainer.style.alignItems = 'center';
 
   results.innerHTML = '';
   resultHeader.innerText = `Informações do usuário "${userData.login}":`;
   results.appendChild(userContainer);
 }
+
 
   
       submitButton.addEventListener('click', function() {
